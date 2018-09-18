@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a test api project where use can signup/signin and create employees. Writted in rails5
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Setps to run (assuming you already installed mysql and ruby):
+$ change database.yml username/password as per your local mysql database
+$ rake db:create
+$ rake db:migrate
+$ rails s
