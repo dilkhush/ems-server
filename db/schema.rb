@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20180917105841) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.string   "email"
-    t.text     "tokens"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.string   "authentication_token",   limit: 30

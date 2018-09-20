@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password]
     if @user.save
       render json: :null, status: :created
     else
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
 
   def sign_in
     @user = User.where(email: params[:email]).first
-    render json: { errors: ['Invalidate email/password'] }, status: :unprocessable_entity unless @user
+    render json: { errors: ['Invalidate email/password'] }, status: :unprocessable_entity and return unless @user
     if @user.valid_password?(params[:password])
       @user.reset_authentication_token
       render json: @user, status: :created
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email)
     end
 
 end
